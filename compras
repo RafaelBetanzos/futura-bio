@@ -1,0 +1,319 @@
+import { useId, useState } from "react";
+import { Link } from "react-router-dom";
+import group from "./group.png";
+import { Icon } from "./Icon";
+import IMG15531 from "./IMG-1553-1.png";
+import icon from "./icon.svg";
+import iconos1 from "./iconos-1.png";
+import image from "./image.png";
+import image1 from "./image.svg";
+import image30 from "./image-30.png";
+import line1 from "./line-1.svg";
+import line5 from "./line-5.svg";
+import line7 from "./line-7.svg";
+import vector from "./vector.svg";
+import vector2 from "./vector-2.svg";
+import vector4 from "./vector-4.svg";
+import vector5 from "./vector-5.svg";
+import vector6 from "./vector-6.svg";
+import vector7 from "./vector-7.svg";
+import vector9 from "./vector-9.svg";
+
+const navItems = [
+  { label: "Producto", href: "#" },
+  { label: "Sobre Nosotros", href: "#" },
+  { label: "Artículos", href: "#" },
+  { label: "Contacto", href: "#" },
+];
+
+const footerItems = [
+  { label: "Productos", left: "562px", width: "81px" },
+  { label: "Sobre nosotros", left: "763px", width: "119px" },
+  { label: "Artículos", left: "1002px", width: "71px" },
+  { label: "Contacto", left: "1193px", width: "75px" },
+];
+
+export const Comprar = (): JSX.Element => {
+  const emailId = useId();
+  const quantityId = useId();
+  const [quantity, setQuantity] = useState("1");
+  const [email, setEmail] = useState("correoelectrónico@dominioficticio.net");
+
+  return (
+    <div className="bg-white overflow-hidden w-full min-w-[1440px] min-h-[2023px] relative">
+      <header className="absolute -top-0.5 left-0 w-[1440px] h-[74px]">
+        <div className="top-0.5 h-[72px] absolute left-0 w-[1440px] bg-white" />
+        <nav
+          aria-label="Principal"
+          className="absolute top-[29px] left-[688px] w-[673px] h-[27px] flex gap-[55px]"
+        >
+          {navItems.map((item, index) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className={[
+                "flex",
+                index === 0 ? "mt-[3px] w-[73px] h-6" : "",
+                index === 1 ? "mt-[3px] w-[123px] h-6" : "",
+                index === 2 ? "mt-[3px] w-[73px] h-6" : "",
+                index === 3 ? "mt-[3px] w-[75px] h-6" : "",
+              ].join(" ")}
+            >
+              <div
+                className={[
+                  "[font-family:'Poppins-Regular',Helvetica] font-normal text-black text-base text-center tracking-[0] leading-6 flex items-center justify-center flex-1",
+                  index === 0 ? "w-[73px]" : "",
+                  index === 1 ? "ml-[0.81%] w-[123px] mr-[-0.81%]" : "",
+                  index === 2 ? "w-[73px]" : "",
+                  index === 3 ? "ml-[-5.48%] w-[82.19px] mr-[-4.11%]" : "",
+                ].join(" ")}
+              >
+                {item.label}
+              </div>
+            </a>
+          ))}
+          <Link to="/comprar" aria-label="Ir a comprar">
+            <button
+              type="button"
+              className="all-[unset] box-border flex w-[109px] h-[27px] relative items-center justify-around p-3.5 bg-[#474329] rounded shadow-button-shadow"
+            >
+              <div className="relative w-[98.14px] h-[27px] mt-[-14.00px] mb-[-14.00px] ml-[-8.57px] mr-[-8.57px]">
+                <div className="absolute top-0.5 left-0 w-[76px] h-6 flex">
+                  <div className="w-[74px] h-6 [font-family:'Poppins-Medium',Helvetica] font-medium text-base leading-6 flex items-center text-white tracking-[0] whitespace-nowrap">
+                    Comprar
+                  </div>
+                </div>
+                <div className="absolute top-0 left-[73px] w-[25px] h-[27px] bg-[url(/carrito2-2.png)] bg-cover bg-[50%_50%]" />
+              </div>
+            </button>
+          </Link>
+        </nav>
+        <div className="absolute top-0 left-14 w-[239px] h-[74px]">
+          <div className="absolute w-[177px] h-[30px] top-5 left-6">
+            <img
+              className="absolute w-full h-[91.10%] top-[8.90%] left-0"
+              alt="Group"
+              src={image}
+            />
+            <div className="absolute w-[30.68%] h-full top-0 left-[69.32%]">
+              <img
+                className="absolute w-full h-[98.39%] top-0 left-0"
+                alt="Vector"
+                src={vector5}
+              />
+              <img
+                className="absolute w-[54.73%] h-full top-0 left-[45.27%]"
+                alt="Vector"
+                src={vector6}
+              />
+              <img
+                className="absolute w-[41.06%] h-[74.01%] top-[25.99%] left-[58.94%]"
+                alt="Vector"
+                src={vector7}
+              />
+            </div>
+          </div>
+          <div className="absolute w-[3.53%] h-[11.31%] top-[27.27%] left-[85.81%] flex bg-[url(/vector-8.svg)] bg-[100%_100%]">
+            <img className="flex-1 w-[4.06px]" alt="Vector" src={vector9} />
+          </div>
+        </div>
+      </header>
+      <main>
+        <section aria-labelledby="product-title">
+          <img
+            className="absolute top-[153px] left-[61px] w-[678px] h-[608px] aspect-[1.12] object-cover"
+            alt="Crema Equilibrio Natural"
+            src={IMG15531}
+          />
+          <h1
+            id="product-title"
+            className="absolute top-[186px] left-[817px] w-[470px] [font-family:'Poppins-Bold',Helvetica] font-bold text-[#5e5b38] text-[44px] tracking-[0] leading-[48.4px]"
+          >
+            CREMA EQULIBRIO
+            <br />
+            NATURAL
+          </h1>
+          <div className="flex flex-col w-[394px] items-start gap-[var(--variable-collection-spacing-s)] absolute top-[299px] left-[817px]">
+            <div className="relative self-stretch mt-[-1.00px] [font-family:'Poppins-SemiBold',Helvetica] font-semibold text-[#5e5b38] text-[44px] tracking-[0] leading-[66px]">
+              $$$$$
+            </div>
+          </div>
+          <form
+            className="contents"
+            onSubmit={(event) => {
+              event.preventDefault();
+            }}
+          >
+            <label
+              htmlFor={quantityId}
+              className="absolute top-[392px] left-[817px] w-[626px] [font-family:'Poppins-Medium',Helvetica] font-medium text-[#5e5b38] text-base tracking-[0] leading-6"
+            >
+              Cantidad
+            </label>
+            <div className="w-[122px] h-12 absolute top-[424px] left-[817px] flex items-start gap-2 px-4 py-3 bg-white rounded-lg border border-solid border-[#dfdfdf] shadow-button-shadow">
+              <input
+                id={quantityId}
+                name="quantity"
+                inputMode="numeric"
+                pattern="[0-9]*"
+                aria-label="Cantidad"
+                className="relative flex-1 mt-[-1.00px] [font-family:'Poppins-Regular',Helvetica] font-normal text-[#828282] text-[15px] tracking-[0] leading-[22.5px]"
+                value={quantity}
+                onChange={(event) => {
+                  const value = event.target.value.replace(/\D/g, "");
+                  setQuantity(value === "" ? "" : value);
+                }}
+              />
+            </div>
+            <div className="inline-flex flex-col h-20 items-start gap-2 absolute top-[499px] left-[817px]">
+              <label
+                htmlFor={emailId}
+                className="relative self-stretch mt-[-1.00px] [font-family:'Poppins-Medium',Helvetica] font-medium text-[#5e5b38] text-base tracking-[0] leading-6"
+              >
+                Correo electrónico de contacto
+              </label>
+              <div className="w-[424px] relative flex-1 grow flex items-start gap-2 px-4 py-3 bg-white rounded-lg border border-solid border-[#dfdfdf] shadow-button-shadow">
+                <input
+                  id={emailId}
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  className="relative flex-1 mt-[-1.00px] [font-family:'Poppins-Regular',Helvetica] font-normal text-[#828282] text-[15px] tracking-[0] leading-[22.5px]"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
+                />
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="flex w-[424px] items-center justify-center gap-2 px-8 py-4 absolute top-[606px] left-[817px] bg-[#5e5b38] rounded-lg shadow-button-shadow"
+            >
+              <div className="relative w-fit mt-[-1.00px] [font-family:'Poppins-SemiBold',Helvetica] font-semibold text-xl leading-[30px] flex items-center text-white tracking-[0] whitespace-nowrap">
+                Comprar ahora
+              </div>
+            </button>
+          </form>
+        </section>
+        <section aria-labelledby="ingredients-title">
+          <h2 className="absolute top-[900px] left-[calc(50.00%_-_574px)] w-[328px] [font-family:'Poppins-SemiBold',Helvetica] font-semibold text-[#5e5b38] text-[44px] tracking-[0] leading-[normal]">
+            INGREDIENTES
+          </h2>
+          <p className="absolute top-[980px] left-[143px] w-[527px] h-[126px] flex items-center [font-family:'Poppins-Regular',Helvetica] font-normal text-[#5e5b38] text-[23px] tracking-[0] leading-[normal]">
+            Coco nucifera OIL, Calendula officinalis FLOWER EXTRACT, Centella
+            asiatica LEAF EXTRACT, Arnica montana FLOWER EXTRACT, Mangifera
+            indica SEED BUTTER, Tocopherol.
+          </p>
+        </section>
+        <section aria-labelledby="daily-skincare-title">
+          <h2 className="absolute top-[1169px] left-[146px] w-[468px] [font-family:'Poppins-SemiBold',Helvetica] font-semibold text-[#5e5b38] text-[44px] tracking-[0] leading-[normal]">
+            DAILY SKINCARE
+          </h2>
+          <p className="absolute top-[1235px] left-[146px] w-[665px] [font-family:'Poppins-SemiBold',Helvetica] font-semibold text-[#5e5b38] text-[28px] tracking-[0] leading-[normal]">
+            APTO TODO TIPO DE PIEL
+          </p>
+          <p className="absolute top-[1295px] left-[146px] w-[599px] [font-family:'Poppins-Regular',Helvetica] font-normal text-[#5e5b38] text-[23px] tracking-[-0.44px] leading-[34.5px]">
+            <span className="tracking-[-0.10px]">
+              Tu ritual diario de cuidado empieza aquí.
+              <br />
+              Equilibrio Natural es una crema corporal formulada para todo tipo
+              de piel. Su textura cremosa y de rápida absorción brinda{" "}
+            </span>
+            <span className="[font-family:'Poppins-SemiBold',Helvetica] font-semibold tracking-[-0.10px]">
+              humectación prolongada
+            </span>
+            <span className="tracking-[-0.10px]">, dejando una</span>
+            <span className="[font-family:'Poppins-SemiBold',Helvetica] font-semibold tracking-[-0.10px]">
+              {" "}
+              sensación suave
+            </span>
+            <span className="tracking-[-0.10px]">
+              . Desarrollada por FuturaBio®, combina el poder de ingredientes de
+              origen natural con fórmulas pensadas y probadas, enfocadas en el{" "}
+            </span>
+            <span className="[font-family:'Poppins-SemiBold',Helvetica] font-semibold tracking-[-0.10px]">
+              cuidado integral y el equilibrio de la piel.
+            </span>
+          </p>
+          <img
+            className="absolute top-[1153px] left-[510px] w-[104px] h-[104px] aspect-[1] object-cover"
+            alt="Iconos de cuidado diario"
+            src={iconos1}
+          />
+        </section>
+        <img
+          className="absolute top-[778px] left-[580px] w-[860px] h-[974px] aspect-[1] object-cover"
+          alt="Decorative skincare background"
+          src={image30}
+        />
+      </main>
+      <footer className="absolute top-[1692px] left-0 w-[1440px] h-[331px]">
+        <div className="absolute top-0 left-0 w-[1448px] h-[331px]">
+          <div className="top-0 h-[331px] absolute left-0 w-[1440px] bg-white" />
+          {footerItems.map((item) => (
+            <div
+              key={item.label}
+              className="absolute top-[107px] [font-family:'Poppins-Regular',Helvetica] font-normal text-black text-[13px] text-center tracking-[0] leading-[19.5px]"
+              style={{ left: item.left, width: item.width }}
+            >
+              {item.label}
+            </div>
+          ))}
+          <div className="absolute top-[97px] left-[703px] w-[430px] h-[43px] flex">
+            <img className="w-px h-[43px]" alt="Line" src={line1} />
+            <img className="ml-[238px] w-px h-[43px]" alt="Line" src={line5} />
+            <img className="ml-[190px] w-px h-[43px]" alt="Line" src={line7} />
+          </div>
+          <div className="absolute top-[149px] left-[125px] w-[58px] h-[58px] flex rounded">
+            <a
+              className="mt-1.5 w-6 h-6 ml-[-7px] flex rounded"
+              href="#"
+              aria-label="LinkedIn"
+            >
+              <Icon className="!mt-[3px] !w-[18px] !h-[18px] !ml-[3px]" />
+            </a>
+            <a
+              className="mt-0.5 w-[29px] h-[30px] flex rounded"
+              href="https://www.instagram.com/futurabioactives/#"
+              rel="noopener noreferrer"
+              target="_blank"
+              aria-label="Instagram"
+            >
+              <div className="mt-2 w-[35px] h-[35px] ml-2 flex">
+                <img className="flex-1 w-[18px]" alt="Icon" src={icon} />
+              </div>
+            </a>
+          </div>
+        </div>
+        <div className="absolute top-[84px] left-[99px] w-[228px] h-[71px]">
+          <div className="absolute w-[169px] h-[29px] top-[19px] left-[22px]">
+            <img
+              className="absolute w-full h-[91.10%] top-[8.90%] left-0"
+              alt="Group"
+              src={group}
+            />
+            <div className="absolute w-[30.68%] h-full top-0 left-[69.32%]">
+              <img
+                className="absolute w-full h-[98.39%] top-0 left-0"
+                alt="Vector"
+                src={vector}
+              />
+              <img
+                className="absolute w-[54.73%] h-full top-0 left-[45.27%]"
+                alt="Vector"
+                src={image1}
+              />
+              <img
+                className="absolute w-[41.06%] h-[74.01%] top-[25.99%] left-[58.94%]"
+                alt="Vector"
+                src={vector2}
+              />
+            </div>
+          </div>
+          <div className="absolute w-[3.53%] h-[11.31%] top-[27.27%] left-[85.55%] flex bg-[url(/vector-3.svg)] bg-[100%_100%]">
+            <img className="flex-1 w-[3.87px]" alt="Vector" src={vector4} />
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
