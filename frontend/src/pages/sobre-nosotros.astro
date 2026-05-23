@@ -29,26 +29,33 @@ const equipo = [
   description="Conoce al equipo detrás de FuturaBio®. Científicos, innovadores y emprendedores comprometidos con el bienestar."
 >
 
-  <!-- Hero -->
-  <section class="relative h-[480px] overflow-hidden">
+  <!-- Hero — texto arriba izquierda sobre imagen -->
+  <section class="relative min-h-[580px] overflow-hidden">
     <img
       src={`${base}/assets/images/SobreNosotros01.png`}
       alt="FuturaBio — Sobre Nosotros"
       class="absolute inset-0 w-full h-full object-cover object-center"
     />
-    <div class="absolute inset-0 bg-white/40"></div>
-    <div class="relative page-container h-full flex items-end pb-16">
-      <h1 class="text-5xl md:text-6xl font-medium text-neutral-800">sobre nosotros</h1>
+    <div class="absolute inset-0 bg-white/20"></div>
+    <div class="relative page-container pt-20 pb-16">
+      <h1 class="text-5xl md:text-6xl font-medium text-neutral-800">Sobre Nosotros</h1>
     </div>
   </section>
 
-  <!-- Misión + Visión -->
-  <section class="page-section bg-white">
-    <div class="page-container">
+  <!-- Misión + Visión — sobre imagen de fondo -->
+  <section class="relative overflow-hidden">
+    <img
+      src={`${base}/assets/images/SobreNosotros02.png`}
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-white/55"></div>
+    <div class="relative page-section page-container">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-        <div class="border border-neutral-200 p-10">
-          <h2 class="text-xl font-semibold text-futura-dark mb-6 uppercase tracking-wide">Nuestra Misión</h2>
+        <div class="border border-neutral-300 bg-white/70 p-10">
+          <h2 class="text-sm font-semibold text-futura-dark mb-6 uppercase tracking-widest">Nuestra Misión</h2>
           <p class="text-sm text-neutral-600 leading-relaxed">
             Impulsar la salud y el bienestar de las personas desarrollando y ofreciendo productos
             naturales, seguros y eficaces. Buscamos generar un impacto positivo y sostenible en la
@@ -57,8 +64,8 @@ const equipo = [
           </p>
         </div>
 
-        <div class="border border-neutral-200 p-10">
-          <h2 class="text-xl font-semibold text-futura-dark mb-6 uppercase tracking-wide">Nuestra Visión</h2>
+        <div class="border border-neutral-300 bg-white/70 p-10">
+          <h2 class="text-sm font-semibold text-futura-dark mb-6 uppercase tracking-widest">Nuestra Visión</h2>
           <p class="text-sm text-neutral-600 leading-relaxed">
             Convertirnos como la empresa en la innovación permanente y el cuidado humano, siendo
             líderes desde nuestra ciencia al servicio del bienestar de la humanidad con la
@@ -70,57 +77,45 @@ const equipo = [
     </div>
   </section>
 
-  <!-- Ciencia aplicada — texto sobre el patrón de gotitas -->
-  <section class="relative min-h-[480px] overflow-hidden">
+  <!-- Ciencia aplicada — texto izquierda + círculos decorativos derecha -->
+  <section class="relative page-section bg-white overflow-hidden">
     <img
-      src={`${base}/assets/images/SobreNosotros02.png`}
+      src={`${base}/assets/images/SobreNosotros03.png`}
       alt=""
       aria-hidden="true"
-      class="absolute inset-0 w-full h-full object-cover object-center"
+      class="absolute -right-20 top-0 h-full w-auto opacity-70 pointer-events-none select-none"
     />
-    <div class="absolute inset-0 bg-white/55"></div>
-    <div class="relative page-section page-container">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+    <div class="relative page-container">
+      <div class="max-w-2xl">
 
-        <div>
-          <h2 class="text-3xl md:text-4xl font-medium text-neutral-900 mb-6">
-            Ciencia aplicada al bienestar real
-          </h2>
-          <div class="space-y-4 text-sm text-neutral-700 leading-relaxed">
-            <p>
-              <strong class="text-neutral-900">Transformamos ciencia en bienestar cotidiano.</strong> En FuturaBio®
-              nacemos desde la ciencia aplicada y la convicción de que la investigación de calidad debe
-              convertirse en soluciones reales. Somos científicos y emprendedores que desarrollan productos
-              naturales, seguros y eficaces, pensados para integrarse a la vida diaria.
-            </p>
-            <p>
-              <strong class="text-neutral-900">El valor está en el origen.</strong> Cada desarrollo se apoya en
-              investigación rigurosa, criterio tecnológico y una mirada de largo plazo. Funcionamos como
-              el puente entre la ciencia y el mercado, convirtiendo innovación validada en soluciones
-              accesibles, responsables y con impacto positivo.
-            </p>
-            <p>
-              <strong class="text-neutral-900">Un modelo que se retroalimenta.</strong> Elegir FuturaBio® es elegir
-              productos respaldados científicamente y, al mismo tiempo, impulsar la investigación, el
-              desarrollo tecnológico y un ecosistema científico orientado al futuro.
-            </p>
-          </div>
+        <h2 class="text-3xl md:text-4xl font-medium text-neutral-900 mb-8">
+          Ciencia aplicada al bienestar real
+        </h2>
+
+        <div class="space-y-5 text-sm text-neutral-600 leading-relaxed mb-10">
+          <p>
+            <strong class="text-neutral-900">Transformamos ciencia en bienestar cotidiano.</strong> En FuturaBio®
+            nacemos desde la ciencia aplicada y la convicción de que la investigación de calidad debe
+            convertirse en soluciones reales. Somos científicos y emprendedores que desarrollan productos
+            naturales, seguros y eficaces, pensados para integrarse a la vida diaria.
+          </p>
+          <p>
+            <strong class="text-neutral-900">El valor está en el origen.</strong> Cada desarrollo se apoya en
+            investigación rigurosa, criterio tecnológico y una mirada de largo plazo. Funcionamos como
+            el puente entre la ciencia y el mercado, convirtiendo innovación validada en soluciones
+            accesibles, responsables y con impacto positivo.
+          </p>
+          <p>
+            <strong class="text-neutral-900">Un modelo que se retroalimenta.</strong> Elegir FuturaBio® es elegir
+            productos respaldados científicamente y, al mismo tiempo, impulsar la investigación, el
+            desarrollo tecnológico y un ecosistema científico orientado al futuro.
+          </p>
         </div>
 
-        <div class="flex flex-col items-start gap-4">
-          <img
-            src={`${base}/assets/images/SobreNosotros03.png`}
-            alt=""
-            aria-hidden="true"
-            class="w-full max-w-sm opacity-80"
-          />
-          <div>
-            <p class="text-base font-medium text-neutral-800">
-              Ciencia que se convierte en producto. Productos que sostienen la ciencia.
-            </p>
-            <p class="text-sm text-neutral-500 mt-1">FuturaBio®: Ciencia y Naturaleza.</p>
-          </div>
-        </div>
+        <p class="text-base font-semibold text-neutral-800 uppercase tracking-wide">
+          Ciencia que se convierte en producto. Producto que sostiene la ciencia.
+        </p>
+        <p class="text-sm text-neutral-500 mt-2 uppercase tracking-widest">FuturaBio®: Ciencia y Naturaleza.</p>
 
       </div>
     </div>
@@ -129,7 +124,7 @@ const equipo = [
   <!-- El Equipo -->
   <section class="page-section bg-futura-cream">
     <div class="page-container">
-      <h2 class="text-3xl md:text-4xl font-medium text-neutral-900 text-center mb-10">EL EQUIPO</h2>
+      <h2 class="text-3xl md:text-4xl font-medium text-neutral-900 text-center mb-10">El Equipo</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         {equipo.map(({ nombre, rol, bio, img }) => (
           <div class="flex flex-col items-center text-center">
