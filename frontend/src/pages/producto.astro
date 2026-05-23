@@ -103,12 +103,11 @@ const ingredientesDer = [
   </section>
 
   <!-- Ingredientes -->
-  <section class="bg-white pt-12 pb-10">
-    <div class="page-container mb-6">
+  <section class="bg-white pb-16">
+    <div class="page-container pt-10 mb-2">
       <h2 class="text-3xl md:text-4xl font-semibold text-neutral-900">Ingredientes</h2>
     </div>
 
-    <!-- Imagen full-width con texto superpuesto -->
     <div class="relative w-full">
       <img
         src={`${base}/assets/images/Productos04.png`}
@@ -116,22 +115,24 @@ const ingredientesDer = [
         class="w-full object-contain"
       />
 
-      <!-- Ingredientes izquierda — superpuestos, texto alineado a la derecha -->
-      <div class="absolute inset-y-0 left-0 w-[22%] flex flex-col justify-around py-10 pr-4 text-right">
+      <!-- Izquierda: 4%–22% del ancho (zona transparente izquierda del PNG) -->
+      <div class="absolute inset-y-0 text-right flex flex-col justify-around py-[8%]"
+           style="left:4%; width:18%;">
         {ingredientesIzq.map(({ nombre, beneficio }) => (
           <div>
-            <p class="text-xs font-semibold text-neutral-800 uppercase tracking-wide mb-0.5">{nombre}</p>
-            <p class="text-xs text-neutral-500 leading-snug">{beneficio}</p>
+            <p class="text-sm font-semibold text-neutral-800 uppercase tracking-wide mb-1">{nombre}</p>
+            <p class="text-sm text-neutral-500 leading-snug">{beneficio}</p>
           </div>
         ))}
       </div>
 
-      <!-- Ingredientes derecha — superpuestos, texto alineado a la izquierda -->
-      <div class="absolute inset-y-0 right-0 w-[22%] flex flex-col justify-around py-10 pl-4 text-left">
+      <!-- Derecha: 67%–86% del ancho (zona derecha sobre la imagen) -->
+      <div class="absolute inset-y-0 text-left flex flex-col justify-around py-[8%]"
+           style="left:67%; width:19%;">
         {ingredientesDer.map(({ nombre, beneficio }) => (
           <div>
-            <p class="text-xs font-semibold text-neutral-800 uppercase tracking-wide mb-0.5">{nombre}</p>
-            <p class="text-xs text-neutral-500 leading-snug">{beneficio}</p>
+            <p class="text-sm font-semibold text-neutral-800 uppercase tracking-wide mb-1">{nombre}</p>
+            <p class="text-sm text-neutral-500 leading-snug">{beneficio}</p>
           </div>
         ))}
       </div>
