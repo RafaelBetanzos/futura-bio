@@ -124,19 +124,32 @@ const ingredientes = [
   <!-- Ingredientes -->
   <section class="page-section bg-white">
     <div class="page-container">
-      <h2 class="text-3xl md:text-4xl font-semibold text-neutral-900 mb-4">Ingredientes</h2>
-      <p class="text-sm text-neutral-500 mb-8 max-w-xl">
-        Coco nucifera OIL, Calendula officinalis FLOWER EXTRACT, Centella asiatica LEAF EXTRACT,
-        Arnica montana FLOWER EXTRACT, Mangifera indica SEED BUTTER, Tocopherol.
-      </p>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {ingredientes.map(({ nombre, beneficio }) => (
-          <div class="border-t border-neutral-200 pt-5">
-            <p class="text-sm font-semibold text-neutral-800 mb-2 uppercase tracking-wide">{nombre}</p>
-            <p class="text-sm text-neutral-500 leading-relaxed">{beneficio}</p>
+        <div>
+          <h2 class="text-3xl md:text-4xl font-semibold text-neutral-900 mb-4">Ingredientes</h2>
+          <p class="text-sm text-neutral-500 mb-8 max-w-xl">
+            Coco nucifera OIL, Calendula officinalis FLOWER EXTRACT, Centella asiatica LEAF EXTRACT,
+            Arnica montana FLOWER EXTRACT, Mangifera indica SEED BUTTER, Tocopherol.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {ingredientes.map(({ nombre, beneficio }) => (
+              <div class="border-t border-neutral-200 pt-4">
+                <p class="text-sm font-semibold text-neutral-800 mb-1 uppercase tracking-wide">{nombre}</p>
+                <p class="text-sm text-neutral-500 leading-relaxed">{beneficio}</p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <div class="flex justify-center lg:justify-end">
+          <img
+            src={`${base}/assets/images/Productos04.png`}
+            alt="Ingredientes naturales de la Crema Equilibrio Natural"
+            class="w-full max-w-md object-contain"
+          />
+        </div>
+
       </div>
     </div>
   </section>
