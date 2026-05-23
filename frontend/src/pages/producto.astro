@@ -115,26 +115,36 @@ const ingredientesDer = [
         class="w-full object-contain"
       />
 
-      <!-- Izquierda: 4%–22% del ancho (zona transparente izquierda del PNG) -->
-      <div class="absolute inset-y-0 text-right flex flex-col justify-around py-[8%]"
-           style="left:4%; width:18%;">
-        {ingredientesIzq.map(({ nombre, beneficio }) => (
-          <div>
-            <p class="text-sm font-semibold text-neutral-800 uppercase tracking-wide mb-1">{nombre}</p>
-            <p class="text-sm text-neutral-500 leading-snug">{beneficio}</p>
-          </div>
-        ))}
+      <!-- Izquierda — top% calculados desde coordenadas Figma (img 1440×998, top=y2711) -->
+      <div class="absolute inset-y-0 text-right" style="left:4%; width:18%;">
+        <div class="absolute w-full" style="top:19%;">
+          <p class="text-sm font-semibold text-neutral-800 uppercase tracking-wide mb-1">Tocopherol</p>
+          <p class="text-sm text-neutral-500 leading-snug">Antioxidante - Protege y fortalece la piel.</p>
+        </div>
+        <div class="absolute w-full" style="top:40%;">
+          <p class="text-sm font-semibold text-neutral-800 uppercase tracking-wide mb-1">Coco nucifera OIL</p>
+          <p class="text-sm text-neutral-500 leading-snug">Humectación profunda y suavidad prolongada.</p>
+        </div>
+        <div class="absolute w-full" style="top:60%;">
+          <p class="text-sm font-semibold text-neutral-800 uppercase tracking-wide mb-1">Arnica montana</p>
+          <p class="text-sm text-neutral-500 leading-snug">Alivia y repara pequeñas abrasiones.</p>
+        </div>
       </div>
 
-      <!-- Derecha: 67%–86% del ancho (zona derecha sobre la imagen) -->
-      <div class="absolute inset-y-0 text-left flex flex-col justify-around py-[8%]"
-           style="left:67%; width:19%;">
-        {ingredientesDer.map(({ nombre, beneficio }) => (
-          <div>
-            <p class="text-sm font-semibold text-neutral-800 uppercase tracking-wide mb-1">{nombre}</p>
-            <p class="text-sm text-neutral-500 leading-snug">{beneficio}</p>
-          </div>
-        ))}
+      <!-- Derecha — mismos top% (y-coords idénticos en Figma) -->
+      <div class="absolute inset-y-0 text-left" style="left:67%; width:19%;">
+        <div class="absolute w-full" style="top:19%;">
+          <p class="text-sm font-semibold text-neutral-800 uppercase tracking-wide mb-1">Centella asiatica</p>
+          <p class="text-sm text-neutral-500 leading-snug">Favorece la regeneración y mejora la apariencia de la piel.</p>
+        </div>
+        <div class="absolute w-full" style="top:40%;">
+          <p class="text-sm font-semibold text-neutral-800 uppercase tracking-wide mb-1">Calendula officinalis</p>
+          <p class="text-sm text-neutral-500 leading-snug">Calma y repara - Ideal para pieles sensibles.</p>
+        </div>
+        <div class="absolute w-full" style="top:60%;">
+          <p class="text-sm font-semibold text-neutral-800 uppercase tracking-wide mb-1">Mangifera indica</p>
+          <p class="text-sm text-neutral-500 leading-snug">Nutrición intensa - Elasticidad y confort.</p>
+        </div>
       </div>
     </div>
   </section>
