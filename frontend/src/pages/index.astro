@@ -94,18 +94,16 @@ const claims = [
     </div>
   </section>
 
-  <!-- Imagen full-width -->
-  <section class="h-[500px] overflow-hidden">
+  <!-- Sobre nosotros preview — sobre imagen de textura -->
+  <section class="relative overflow-hidden">
     <img
       src={`${base}/assets/images/Inicio03.png`}
-      alt="FuturaBio — Ingredientes naturales"
-      class="w-full h-full object-cover object-center"
+      alt=""
+      aria-hidden="true"
+      class="absolute inset-0 w-full h-full object-cover object-center"
     />
-  </section>
-
-  <!-- Sobre nosotros preview -->
-  <section class="page-section bg-white">
-    <div class="page-container">
+    <div class="absolute inset-0 bg-white/70"></div>
+    <div class="relative page-section page-container">
       <div class="max-w-xl">
         <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 mb-6">Sobre nosotros</h2>
         <p class="text-base text-neutral-600 leading-relaxed mb-7">
