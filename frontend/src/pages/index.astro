@@ -12,13 +12,23 @@ const claims = [
 
 <BaseLayout title="FuturaBio® — Ciencia y Naturaleza para tu piel">
 
-  <!-- Hero — imagen limpia sin texto -->
+  <!-- Hero — video en loop -->
   <section class="h-[calc(100vh-74px)] overflow-hidden">
-    <img
-      src={`${base}/assets/images/Inicio01.png`}
-      alt="FuturaBio® — Crema Equilibrio Natural"
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
       class="w-full h-full object-cover object-center"
-    />
+    >
+      <source src={`${base}/assets/videos/hero.mp4`} type="video/mp4" />
+      <!-- Fallback para navegadores sin soporte de video -->
+      <img
+        src={`${base}/assets/images/Inicio01.png`}
+        alt="FuturaBio® — Crema Equilibrio Natural"
+        class="w-full h-full object-cover object-center"
+      />
+    </video>
   </section>
 
   <!-- Producto intro -->
