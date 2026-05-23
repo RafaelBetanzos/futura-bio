@@ -12,9 +12,10 @@ const claims = [
 
 <BaseLayout title="FuturaBio® — Ciencia y Naturaleza para tu piel">
 
-  <!-- Hero — video en loop -->
-  <section class="h-[calc(100vh-74px)] overflow-hidden">
+  <!-- Hero — video en loop con control de sonido -->
+  <section class="relative h-[calc(100vh-74px)] overflow-hidden">
     <video
+      id="hero-video"
       autoplay
       loop
       muted
@@ -22,14 +23,46 @@ const claims = [
       class="w-full h-full object-cover object-center"
     >
       <source src={`${base}/assets/videos/hero.mp4`} type="video/mp4" />
-      <!-- Fallback para navegadores sin soporte de video -->
       <img
         src={`${base}/assets/images/Inicio01.png`}
         alt="FuturaBio® — Crema Equilibrio Natural"
         class="w-full h-full object-cover object-center"
       />
     </video>
+
+    <!-- Botón mute/unmute -->
+    <button
+      id="sound-toggle"
+      aria-label="Activar sonido"
+      class="absolute bottom-6 right-6 z-10 flex items-center gap-2 bg-white/70 backdrop-blur-sm px-4 py-2 text-xs font-medium text-neutral-700 hover:bg-white/90 transition-colors"
+    >
+      <svg id="icon-muted" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707A1 1 0 0112 5v14a1 1 0 01-1.707.707L5.586 15z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+      </svg>
+      <svg id="icon-unmuted" xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072M12 6v12m0 0l-4.243-4.243M12 18l4.243-4.243M12 6L7.757 10.243M12 6l4.243 4.243" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707A1 1 0 0112 5v14a1 1 0 01-1.707.707L5.586 15z" />
+      </svg>
+      <span id="sound-label">Sonido</span>
+    </button>
   </section>
+
+  <script>
+    const video = document.getElementById('hero-video') as HTMLVideoElement;
+    const btn   = document.getElementById('sound-toggle');
+    const iconMuted   = document.getElementById('icon-muted');
+    const iconUnmuted = document.getElementById('icon-unmuted');
+    const label = document.getElementById('sound-label');
+
+    btn?.addEventListener('click', () => {
+      video.muted = !video.muted;
+      iconMuted?.classList.toggle('hidden', !video.muted);
+      iconUnmuted?.classList.toggle('hidden', video.muted);
+      if (label) label.textContent = video.muted ? 'Sonido' : 'Silencio';
+      btn.setAttribute('aria-label', video.muted ? 'Activar sonido' : 'Silenciar');
+    });
+  </script>
 
   <!-- Producto intro -->
   <section class="page-section bg-white">
