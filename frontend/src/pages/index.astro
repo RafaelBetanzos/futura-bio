@@ -73,51 +73,78 @@ const claims = [
     </div>
   </section>
 
-  <!-- Por qué FuturaBio -->
-  <section class="relative page-section bg-futura-cream overflow-hidden">
-    <img
-      src={`${base}/assets/images/Inicio04.png`}
-      alt=""
-      aria-hidden="true"
-      class="absolute -right-20 -bottom-10 w-[480px] opacity-60 pointer-events-none select-none"
-    />
-    <div class="relative page-container">
-      <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 text-center mb-10">
-        ¿Por qué nuestra crema Equilibrio Natural?
-      </h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
-        {claims.map(({ icon, label }) => (
-          <div class="flex flex-col items-center text-center gap-4">
-            <img
-              src={`${base}/assets/illustrations/Claims FuturaBio (ICONOS)-${icon}.svg`}
-              alt={label}
-              class="w-24 h-24"
-            />
-            <p class="text-sm font-medium text-neutral-700">{label}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- Bloque central — fondo de textura de crema continuo -->
+  <section class="relative overflow-hidden">
 
-  <!-- Sobre nosotros preview — texto sobre textura de crema -->
-  <section class="relative min-h-[420px] overflow-hidden">
+    <!-- Fondo: textura de crema -->
     <img
       src={`${base}/assets/images/Inicio03.png`}
       alt=""
       aria-hidden="true"
-      class="absolute inset-0 w-full h-full object-cover object-center"
+      class="absolute inset-0 w-full h-full object-cover object-center scale-110"
     />
-    <div class="absolute inset-0 bg-white/35"></div>
-    <div class="relative page-section page-container flex items-center min-h-[420px]">
-      <div class="max-w-xl">
-        <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 mb-6">Sobre nosotros</h2>
-        <p class="text-base text-neutral-700 leading-relaxed mb-7">
-          En FuturaBio® somos científicos, innovadores y emprendedores guiados por la curiosidad y
-          el compromiso de crear soluciones que mejoren la vida de las personas.
-        </p>
-        <a href="/sobre-nosotros" class="btn-outline-dark">Conoce al equipo</a>
+    <!-- Círculos decorativos -->
+    <img
+      src={`${base}/assets/images/Inicio04.png`}
+      alt=""
+      aria-hidden="true"
+      class="absolute -right-16 top-0 w-[520px] opacity-50 pointer-events-none select-none"
+    />
+    <div class="absolute inset-0 bg-white/20"></div>
+
+    <div class="relative">
+
+      <!-- Claims -->
+      <div class="page-section page-container">
+        <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 text-center mb-10">
+          ¿Por qué nuestra crema Equilibrio Natural?
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+          {claims.map(({ icon, label }) => (
+            <div class="flex flex-col items-center text-center gap-4">
+              <img
+                src={`${base}/assets/illustrations/Claims FuturaBio (ICONOS)-${icon}.svg`}
+                alt={label}
+                class="w-24 h-24"
+              />
+              <p class="text-sm font-medium text-neutral-700">{label}</p>
+            </div>
+          ))}
+        </div>
       </div>
+
+      <!-- Divisor -->
+      <div class="page-container">
+        <hr class="border-neutral-300/60" />
+      </div>
+
+      <!-- Sobre nosotros -->
+      <div class="page-section page-container">
+        <div class="max-w-xl">
+          <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 mb-6">Sobre nosotros</h2>
+          <p class="text-base text-neutral-700 leading-relaxed mb-7">
+            En FuturaBio® somos científicos, innovadores y emprendedores guiados por la curiosidad y
+            el compromiso de crear soluciones que mejoren la vida de las personas.
+          </p>
+          <a href="/sobre-nosotros" class="btn-outline-dark">Conoce al equipo</a>
+        </div>
+      </div>
+
+      <!-- Divisor -->
+      <div class="page-container">
+        <hr class="border-neutral-300/60" />
+      </div>
+
+      <!-- CTA compra -->
+      <div class="page-section page-container text-center">
+        <p class="text-xs font-semibold tracking-[0.3em] text-neutral-500 uppercase mb-4">Daily Skincare</p>
+        <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 mb-3">
+          Crema Equilibrio Natural
+        </h2>
+        <p class="text-base text-neutral-600 mb-8">Realizá tu compra</p>
+        <a href="/comprar" class="btn-dark">Comprar ahora</a>
+      </div>
+
     </div>
   </section>
 
