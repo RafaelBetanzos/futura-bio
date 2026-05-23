@@ -3,15 +3,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const ingredientesIzq = [
-  { nombre: 'Tocopherol',       beneficio: 'Antioxidante — Protege y fortalece la piel.' },
+  { nombre: 'Tocopherol',       beneficio: 'Antioxidante - Protege y fortalece la piel.' },
   { nombre: 'Coco nucifera OIL', beneficio: 'Humectación profunda y suavidad prolongada.' },
   { nombre: 'Arnica montana',   beneficio: 'Alivia y repara pequeñas abrasiones.' },
 ];
 
 const ingredientesDer = [
   { nombre: 'Centella asiatica',     beneficio: 'Favorece la regeneración y mejora la apariencia de la piel.' },
-  { nombre: 'Calendula officinalis', beneficio: 'Calma y repara — Ideal para pieles sensibles.' },
-  { nombre: 'Mangifera indica',      beneficio: 'Nutrición intensa — Elasticidad y confort.' },
+  { nombre: 'Calendula officinalis', beneficio: 'Calma y repara - Ideal para pieles sensibles.' },
+  { nombre: 'Mangifera indica',      beneficio: 'Nutrición intensa - Elasticidad y confort.' },
 ];
 ---
 
@@ -105,19 +105,9 @@ const ingredientesDer = [
   <!-- Ingredientes -->
   <section class="page-section bg-white">
     <div class="page-container">
-      <h2 class="text-3xl md:text-4xl font-semibold text-neutral-900 mb-4">Ingredientes</h2>
+      <h2 class="text-3xl md:text-4xl font-semibold text-neutral-900 mb-10">Ingredientes</h2>
 
-      <!-- Nombres de ingredientes en 2 columnas -->
-      <div class="grid grid-cols-2 gap-x-8 gap-y-1 mb-10 max-w-xl">
-        <p class="text-xs text-neutral-400 uppercase tracking-widest">Tocopherol</p>
-        <p class="text-xs text-neutral-400 uppercase tracking-widest">Centella asiatica</p>
-        <p class="text-xs text-neutral-400 uppercase tracking-widest">Coco nucifera OIL</p>
-        <p class="text-xs text-neutral-400 uppercase tracking-widest">Calendula officinalis</p>
-        <p class="text-xs text-neutral-400 uppercase tracking-widest">Arnica montana</p>
-        <p class="text-xs text-neutral-400 uppercase tracking-widest">Mangifera indica</p>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+      <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr_1fr] gap-8 items-center">
 
         <!-- Columna izquierda -->
         <div class="space-y-8">
@@ -129,12 +119,12 @@ const ingredientesDer = [
           ))}
         </div>
 
-        <!-- Centro: imagen petri dish — ocupa toda la altura de las columnas -->
-        <div class="flex items-center justify-center h-full">
+        <!-- Centro: imagen petri dish — columna doble -->
+        <div class="flex justify-center">
           <img
             src={`${base}/assets/images/Productos04.png`}
             alt="Ingredientes naturales de la Crema Equilibrio Natural"
-            class="w-full h-full object-contain"
+            class="w-full object-contain"
           />
         </div>
 
