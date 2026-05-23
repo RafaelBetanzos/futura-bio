@@ -12,30 +12,13 @@ const claims = [
 
 <BaseLayout title="FuturaBio® — Ciencia y Naturaleza para tu piel">
 
-  <!-- Hero -->
-  <section class="relative h-[calc(100vh-74px)] overflow-hidden">
+  <!-- Hero — imagen limpia sin texto -->
+  <section class="h-[calc(100vh-74px)] overflow-hidden">
     <img
       src={`${base}/assets/images/Inicio01.png`}
-      alt="FuturaBio — Crema Equilibrio Natural"
-      class="absolute inset-0 w-full h-full object-cover object-center"
+      alt="FuturaBio® — Crema Equilibrio Natural"
+      class="w-full h-full object-cover object-center"
     />
-    <div class="absolute inset-0 bg-black/20"></div>
-    <div class="relative h-full flex items-end pb-20 px-6 lg:px-16 max-w-7xl mx-auto">
-      <div>
-        <p class="text-xs font-semibold tracking-[0.3em] text-white/70 uppercase mb-4">Daily Skincare</p>
-        <h1 class="text-4xl md:text-6xl font-medium text-white leading-tight mb-6 max-w-xl">
-          Ciencia y Naturaleza<br/>para tu piel.
-        </h1>
-        <div class="flex items-center gap-4 flex-wrap">
-          <a href="/producto" class="bg-white text-futura-dark text-sm font-medium px-6 py-3 hover:bg-futura-cream transition-colors">
-            Conocer más
-          </a>
-          <a href="/comprar" class="border border-white text-white text-sm font-medium px-6 py-3 hover:bg-white/10 transition-colors">
-            Comprar ahora
-          </a>
-        </div>
-      </div>
-    </div>
   </section>
 
   <!-- Producto intro -->
@@ -43,24 +26,19 @@ const claims = [
     <div class="page-container">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 
-        <!-- Texto -->
         <div>
-          <h1 class="text-4xl md:text-5xl font-medium leading-tight text-neutral-800 mb-5">
+          <h2 class="text-4xl md:text-5xl font-medium leading-tight text-neutral-800 mb-5">
             Ciencia y Naturaleza para el cuidado de tu piel.
-          </h1>
+          </h2>
           <p class="text-base text-neutral-600 leading-relaxed mb-8 max-w-lg">
             Crema Equilibrio Natural ofrece humectación profunda y duradera para todo tipo de piel.
             Su fórmula de rápida absorción, desarrollada por FuturaBio®, mejora la suavidad y la
             luminosidad, acompaña la regeneración natural y promueve una piel visiblemente saludable
             y equilibrada.
           </p>
-          <div class="flex items-center gap-4 flex-wrap">
-            <a href="/producto" class="btn-dark">Conocer más</a>
-            <a href="/comprar" class="btn-outline-dark">Comprar ahora</a>
-          </div>
+          <a href="/producto" class="btn-dark">Conocer más</a>
         </div>
 
-        <!-- Imagen producto -->
         <div class="flex justify-center lg:justify-end">
           <img
             src={`${base}/assets/images/Inicio02.png`}
@@ -73,78 +51,52 @@ const claims = [
     </div>
   </section>
 
-  <!-- Bloque central — fondo de textura de crema continuo -->
-  <section class="relative overflow-hidden">
-
-    <!-- Fondo: textura de crema -->
+  <!-- ¿Por qué nuestra crema? — fondo textura de crema + CTA compra -->
+  <section class="relative page-section overflow-hidden">
     <img
       src={`${base}/assets/images/Inicio03.png`}
       alt=""
       aria-hidden="true"
-      class="absolute inset-0 w-full h-full object-cover object-center scale-110"
+      class="absolute inset-0 w-full h-full object-cover object-center"
     />
-    <!-- Círculos decorativos -->
     <img
       src={`${base}/assets/images/Inicio04.png`}
       alt=""
       aria-hidden="true"
-      class="absolute -right-16 top-0 w-[520px] opacity-50 pointer-events-none select-none"
+      class="absolute -right-16 -top-10 w-[520px] opacity-50 pointer-events-none select-none"
     />
     <div class="absolute inset-0 bg-white/20"></div>
-
-    <div class="relative">
-
-      <!-- Claims -->
-      <div class="page-section page-container">
-        <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 text-center mb-10">
-          ¿Por qué nuestra crema Equilibrio Natural?
-        </h2>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
-          {claims.map(({ icon, label }) => (
-            <div class="flex flex-col items-center text-center gap-4">
-              <img
-                src={`${base}/assets/illustrations/Claims FuturaBio (ICONOS)-${icon}.svg`}
-                alt={label}
-                class="w-24 h-24"
-              />
-              <p class="text-sm font-medium text-neutral-700">{label}</p>
-            </div>
-          ))}
-        </div>
+    <div class="relative page-container text-center">
+      <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 mb-10">
+        ¿Por qué nuestra crema Equilibrio Natural?
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
+        {claims.map(({ icon, label }) => (
+          <div class="flex flex-col items-center gap-4">
+            <img
+              src={`${base}/assets/illustrations/Claims FuturaBio (ICONOS)-${icon}.svg`}
+              alt={label}
+              class="w-24 h-24"
+            />
+            <p class="text-sm font-medium text-neutral-700">{label}</p>
+          </div>
+        ))}
       </div>
+      <a href="/comprar" class="btn-dark">Realiza tu compra aquí</a>
+    </div>
+  </section>
 
-      <!-- Divisor -->
-      <div class="page-container">
-        <hr class="border-neutral-300/60" />
+  <!-- Sobre nosotros — sección blanca separada -->
+  <section class="page-section bg-white">
+    <div class="page-container">
+      <div class="max-w-xl">
+        <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 mb-6">Sobre nosotros</h2>
+        <p class="text-base text-neutral-600 leading-relaxed mb-7">
+          En FuturaBio® somos científicos, innovadores y emprendedores guiados por la curiosidad y
+          el compromiso de crear soluciones que mejoren la vida de las personas.
+        </p>
+        <a href="/sobre-nosotros" class="btn-outline-dark">Conoce a nuestro equipo</a>
       </div>
-
-      <!-- Sobre nosotros -->
-      <div class="page-section page-container">
-        <div class="max-w-xl">
-          <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 mb-6">Sobre nosotros</h2>
-          <p class="text-base text-neutral-700 leading-relaxed mb-7">
-            En FuturaBio® somos científicos, innovadores y emprendedores guiados por la curiosidad y
-            el compromiso de crear soluciones que mejoren la vida de las personas.
-          </p>
-          <a href="/sobre-nosotros" class="btn-outline-dark">Conoce al equipo</a>
-        </div>
-      </div>
-
-      <!-- Divisor -->
-      <div class="page-container">
-        <hr class="border-neutral-300/60" />
-      </div>
-
-      <!-- CTA compra -->
-      <div class="page-section page-container text-center">
-        <p class="text-xs font-semibold tracking-[0.3em] text-neutral-500 uppercase mb-4">Daily Skincare</p>
-        <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 mb-3">
-          Crema Equilibrio Natural
-        </h2>
-        <p class="text-base text-neutral-600 mb-8">Realizá tu compra</p>
-        <a href="/comprar" class="btn-dark">Comprar ahora</a>
-      </div>
-
     </div>
   </section>
 
