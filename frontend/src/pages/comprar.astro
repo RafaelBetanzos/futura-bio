@@ -2,7 +2,14 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const PRECIO = '$25.000 ARS';
+// ─── Payment links — reemplazar con links reales cuando estén listos ──────────
+// AR: Mercado Pago Argentina (cuenta AR)
+const MP_AR = '#';
+// MX: Mercado Pago México (cuenta MX)
+const MP_MX = '#';
+// MX + Internacional: Stripe (cuenta MX)
+const STRIPE_MX = '#';
+// ─────────────────────────────────────────────────────────────────────────────
 ---
 
 <BaseLayout
@@ -30,7 +37,9 @@ const PRECIO = '$25.000 ARS';
           <h1 class="text-3xl md:text-4xl font-bold text-neutral-900 leading-tight mb-4">
             CREMA EQUILIBRIO<br/>NATURAL
           </h1>
-          <p class="text-3xl font-medium text-neutral-900 mb-8">{PRECIO}</p>
+
+          <!-- Precio — actualizado dinámicamente según país -->
+          <p id="precio-display" class="text-3xl font-medium text-neutral-900 mb-8">$25.000 ARS</p>
 
           <div class="space-y-4 mb-6">
             <div>
@@ -57,16 +66,26 @@ const PRECIO = '$25.000 ARS';
             </div>
           </div>
 
-          <button
-            type="button"
-            disabled
-            class="btn-dark w-full justify-center py-4 text-base opacity-50 cursor-not-allowed"
-          >
-            Comprar ahora — próximamente
-          </button>
+          <!-- Botones de pago — se muestran según país detectado -->
+          <div id="payment-buttons" class="space-y-3">
+            <!-- Renderizado por JS -->
+            <div class="h-14 bg-neutral-100 animate-pulse rounded"></div>
+          </div>
+
+          <!-- Cambiar país -->
+          <div class="mt-4 text-center">
+            <span class="text-xs text-neutral-400">País detectado: </span>
+            <span id="pais-label" class="text-xs text-neutral-500 font-medium">—</span>
+            <button
+              id="cambiar-pais"
+              class="ml-2 text-xs text-futura-dark underline underline-offset-2"
+            >
+              Cambiar
+            </button>
+          </div>
 
           <p class="text-xs text-neutral-400 mt-4 text-center">
-            Pago seguro procesado por Stripe. Tu información está protegida.
+            Pago 100% seguro. Tu información está protegida.
           </p>
         </div>
 
@@ -115,4 +134,150 @@ const PRECIO = '$25.000 ARS';
     />
   </section>
 
+  <!-- Modal "próximamente" -->
+  <div
+    id="modal-proximamente"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-6"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="modal-backdrop"></div>
+    <div class="relative bg-white max-w-sm w-full p-10 text-center shadow-xl">
+      <p class="text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-4">FuturaBio®</p>
+      <h2 class="text-2xl font-medium text-neutral-900 mb-4 leading-snug">
+        Estamos trabajando en las mejores opciones de pago
+      </h2>
+      <p class="text-sm text-neutral-500 leading-relaxed mb-8">
+        Muy pronto podrás completar tu compra directamente aquí.<br/>
+        Mientras tanto, escribinos a <a href="mailto:hola@futura-bio.com" class="text-futura-dark underline underline-offset-2">hola@futura-bio.com</a> y te ayudamos.
+      </p>
+      <button
+        id="modal-cerrar"
+        class="btn-dark w-full justify-center py-3"
+      >
+        Entendido
+      </button>
+    </div>
+  </div>
+
+  <!-- Selector de país manual -->
+  <div
+    id="modal-pais"
+    class="fixed inset-0 z-50 hidden items-center justify-center p-6"
+    role="dialog"
+    aria-modal="true"
+  >
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="pais-backdrop"></div>
+    <div class="relative bg-white max-w-xs w-full p-8 shadow-xl">
+      <h2 class="text-base font-semibold text-neutral-900 mb-6">Seleccioná tu país</h2>
+      <div class="space-y-3">
+        <button data-pais="AR" class="pais-btn w-full text-left px-4 py-3 border border-neutral-200 text-sm text-neutral-700 hover:border-futura-dark hover:text-futura-dark transition-colors">
+          🇦🇷 Argentina
+        </button>
+        <button data-pais="MX" class="pais-btn w-full text-left px-4 py-3 border border-neutral-200 text-sm text-neutral-700 hover:border-futura-dark hover:text-futura-dark transition-colors">
+          🇲🇽 México
+        </button>
+        <button data-pais="OTHER" class="pais-btn w-full text-left px-4 py-3 border border-neutral-200 text-sm text-neutral-700 hover:border-futura-dark hover:text-futura-dark transition-colors">
+          🌎 Otro país
+        </button>
+      </div>
+    </div>
+  </div>
+
 </BaseLayout>
+
+<script define:vars={{ MP_AR, MP_MX, STRIPE_MX }}>
+  const LINKS = { MP_AR, MP_MX, STRIPE_MX };
+
+  const PRECIOS = {
+    AR:    '$25.000 ARS',
+    MX:    '$350 MXN',
+    OTHER: 'USD 19',
+  };
+
+  const PAIS_NOMBRES = { AR: 'Argentina', MX: 'México', OTHER: 'Otro país' };
+
+  function renderButtons(pais) {
+    const container = document.getElementById('payment-buttons');
+    const precioEl  = document.getElementById('precio-display');
+    const paisLabel = document.getElementById('pais-label');
+
+    precioEl.textContent  = PRECIOS[pais] ?? PRECIOS.OTHER;
+    paisLabel.textContent = PAIS_NOMBRES[pais] ?? 'Otro país';
+
+    if (pais === 'AR') {
+      container.innerHTML = `
+        <button onclick="abrirModal()" class="btn-dark w-full justify-center py-4 text-base">
+          Pagar con Mercado Pago
+        </button>`;
+    } else if (pais === 'MX') {
+      container.innerHTML = `
+        <button onclick="abrirModal()" class="btn-dark w-full justify-center py-4 text-base">
+          Pagar con Mercado Pago
+        </button>
+        <button onclick="abrirModal()" class="btn-outline-dark w-full justify-center py-4 text-base">
+          Pagar con tarjeta (Stripe)
+        </button>`;
+    } else {
+      container.innerHTML = `
+        <button onclick="abrirModal()" class="btn-dark w-full justify-center py-4 text-base">
+          Pagar con tarjeta (Stripe)
+        </button>`;
+    }
+  }
+
+  window.abrirModal = function () {
+    const m = document.getElementById('modal-proximamente');
+    m.classList.remove('hidden');
+    m.classList.add('flex');
+  };
+
+  function cerrarModal() {
+    const m = document.getElementById('modal-proximamente');
+    m.classList.add('hidden');
+    m.classList.remove('flex');
+  }
+
+  document.getElementById('modal-cerrar').addEventListener('click', cerrarModal);
+  document.getElementById('modal-backdrop').addEventListener('click', cerrarModal);
+
+  // Selector manual de país
+  document.getElementById('cambiar-pais').addEventListener('click', () => {
+    const m = document.getElementById('modal-pais');
+    m.classList.remove('hidden');
+    m.classList.add('flex');
+  });
+
+  document.getElementById('pais-backdrop').addEventListener('click', () => {
+    const m = document.getElementById('modal-pais');
+    m.classList.add('hidden');
+    m.classList.remove('flex');
+  });
+
+  document.querySelectorAll('.pais-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const pais = btn.dataset.pais;
+      localStorage.setItem('fb_pais', pais);
+      renderButtons(pais);
+      document.getElementById('modal-pais').classList.add('hidden');
+      document.getElementById('modal-pais').classList.remove('flex');
+    });
+  });
+
+  // Detección de país — prioridad: elección guardada > IP > fallback AR
+  async function detectarPais() {
+    const guardado = localStorage.getItem('fb_pais');
+    if (guardado) { renderButtons(guardado); return; }
+
+    try {
+      const res  = await fetch('https://ip-api.com/json/?fields=countryCode', { signal: AbortSignal.timeout(3000) });
+      const data = await res.json();
+      const code = ['AR', 'MX'].includes(data.countryCode) ? data.countryCode : 'OTHER';
+      renderButtons(code);
+    } catch {
+      renderButtons('AR'); // fallback
+    }
+  }
+
+  detectarPais();
+</script>
