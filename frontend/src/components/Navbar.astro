@@ -1,0 +1,51 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const path = Astro.url.pathname;
+
+const links = [
+  { href: '/producto', label: 'Producto' },
+  { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
+  { href: '/articulos', label: 'Artículos' },
+  { href: '/contacto', label: 'Contacto' },
+];
+---
+
+<header class="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-sm border-b border-neutral-100">
+  <div class="max-w-7xl mx-auto px-6 lg:px-16">
+    <div class="flex items-center justify-between h-[74px]">
+
+      <!-- Logo -->
+      <a href="/" class="flex-shrink-0">
+        <img
+          src={`${base}/assets/logos/Logo FuturaBio.svg`}
+          alt="FuturaBio®"
+          class="h-10 w-auto"
+        />
+      </a>
+
+      <!-- Nav links (desktop) -->
+      <nav class="hidden md:flex items-center gap-8">
+        {links.map(({ href, label }) => (
+          <a
+            href={href}
+            class:list={[
+              'text-sm transition-colors',
+              path.includes(href)
+                ? 'text-neutral-900 font-medium'
+                : 'text-neutral-500 hover:text-neutral-900',
+            ]}
+          >
+            {label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA -->
+      <a href="/comprar" class="bg-futura-dark text-white text-sm font-medium px-5 py-2 flex items-center gap-2 hover:opacity-90 transition-opacity">
+        Comprar
+        <img src={`${base}/assets/icons/Carrito.svg`} alt="" class="w-4 h-4 brightness-0 invert" />
+      </a>
+
+    </div>
+  </div>
+</header>

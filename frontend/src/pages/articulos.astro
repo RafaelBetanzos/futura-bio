@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Artículos de ejemplo — reemplazar con datos reales desde el CMS o archivos Markdown
+const articulos = [
+  {
+    titulo: 'Beneficios del aceite de coco en el cuidado de la piel',
+    descripcion: 'Descubre por qué el aceite de coco es uno de los ingredientes más valorados en dermatología natural.',
+    img: 'Articulos01.png',
+    href: '#',
+  },
+  {
+    titulo: 'Centella asiatica: el ingrediente que regenera',
+    descripcion: 'La ciencia detrás de uno de los ingredientes más efectivos para la regeneración cutánea.',
+    img: 'Articulos01.png',
+    href: '#',
+  },
+  {
+    titulo: 'Cómo elegir una crema corporal según tu tipo de piel',
+    descripcion: 'Guía práctica para encontrar el producto ideal para tu piel, basada en evidencia científica.',
+    img: 'Articulos01.png',
+    href: '#',
+  },
+];
+---
+
+<BaseLayout
+  title="Artículos — FuturaBio®"
+  description="Artículos sobre ciencia, bienestar y cuidado natural de la piel. Contenido respaldado por FuturaBio®."
+>
+
+  <!-- Hero -->
+  <section class="relative h-[480px] overflow-hidden">
+    <img
+      src={`${base}/assets/images/Articulos01.png`}
+      alt="FuturaBio — Artículos"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-white/30"></div>
+    <div class="relative page-container h-full flex items-end pb-16">
+      <h1 class="text-5xl md:text-6xl font-medium text-neutral-900">Artículos</h1>
+    </div>
+  </section>
+
+  <!-- Grid de artículos -->
+  <section class="page-section bg-white">
+    <div class="page-container">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        {articulos.map(({ titulo, descripcion, img, href }) => (
+          <a href={href} class="group block">
+            <div class="aspect-[4/3] overflow-hidden bg-neutral-100 mb-4">
+              <img
+                src={`${base}/assets/images/${img}`}
+                alt={titulo}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <p class="text-xs text-neutral-400 uppercase tracking-widest mb-2">FuturaBio®</p>
+            <h3 class="text-base font-medium text-neutral-900 mb-2 group-hover:text-futura-dark transition-colors">
+              {titulo}
+            </h3>
+            <p class="text-sm text-neutral-500 leading-relaxed">{descripcion}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

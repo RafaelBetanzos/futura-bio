@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const claims = [
+  { icon: '01', label: 'Fórmula Natural' },
+  { icon: '02', label: 'Científicamente probada' },
+  { icon: '03', label: 'Todo tipo de piel' },
+  { icon: '04', label: 'Absorción rápida' },
+];
+---
+
+<BaseLayout title="FuturaBio® — Ciencia y Naturaleza para tu piel">
+
+  <!-- Hero -->
+  <section class="relative h-[calc(100vh-74px)] overflow-hidden">
+    <img
+      src={`${base}/assets/images/Inicio01.png`}
+      alt="FuturaBio — Crema Equilibrio Natural"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-black/15"></div>
+  </section>
+
+  <!-- Producto intro -->
+  <section class="page-section bg-white">
+    <div class="page-container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Texto -->
+        <div>
+          <h1 class="text-4xl md:text-5xl font-medium leading-tight text-neutral-800 mb-8">
+            Ciencia y Naturaleza para el cuidado de tu piel.
+          </h1>
+          <p class="text-base text-neutral-600 leading-relaxed mb-10 max-w-lg">
+            Crema Equilibrio Natural ofrece humectación profunda y duradera para todo tipo de piel.
+            Su fórmula de rápida absorción, desarrollada por FuturaBio®, mejora la suavidad y la
+            luminosidad, acompaña la regeneración natural y promueve una piel visiblemente saludable
+            y equilibrada.
+          </p>
+          <div class="flex items-center gap-4 flex-wrap">
+            <a href="/producto" class="btn-dark">Conocer más</a>
+            <a href="/comprar" class="btn-outline-dark">Comprar ahora</a>
+          </div>
+        </div>
+
+        <!-- Imagen producto -->
+        <div class="flex justify-center lg:justify-end">
+          <img
+            src={`${base}/assets/images/Inicio02.png`}
+            alt="Crema Equilibrio Natural de FuturaBio®"
+            class="w-full max-w-[480px] object-cover"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Por qué FuturaBio -->
+  <section class="page-section bg-futura-cream">
+    <div class="page-container">
+      <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 text-center mb-16">
+        ¿Por qué nuestra crema Equilibrio Natural?
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+        {claims.map(({ icon, label }) => (
+          <div class="flex flex-col items-center text-center gap-4">
+            <img
+              src={`${base}/assets/illustrations/Claims FuturaBio (ICONOS)-${icon}.svg`}
+              alt={label}
+              class="w-24 h-24"
+            />
+            <p class="text-sm font-medium text-neutral-700">{label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Imagen full-width -->
+  <section class="h-[500px] overflow-hidden">
+    <img
+      src={`${base}/assets/images/Inicio03.png`}
+      alt="FuturaBio — Ingredientes naturales"
+      class="w-full h-full object-cover object-center"
+    />
+  </section>
+
+  <!-- Sobre nosotros preview -->
+  <section class="page-section bg-white">
+    <div class="page-container">
+      <div class="max-w-xl">
+        <h2 class="text-3xl md:text-4xl font-medium text-neutral-800 mb-6">Sobre nosotros</h2>
+        <p class="text-base text-neutral-600 leading-relaxed mb-10">
+          En FuturaBio® somos científicos, innovadores y emprendedores guiados por la curiosidad y
+          el compromiso de crear soluciones que mejoren la vida de las personas.
+        </p>
+        <a href="/sobre-nosotros" class="btn-outline-dark">Conoce al equipo</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

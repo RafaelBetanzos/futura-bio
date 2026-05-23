@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="¡Compra realizada! — FuturaBio®"
+  description="Tu pedido ha sido procesado exitosamente. Gracias por confiar en FuturaBio®."
+>
+
+  <section class="min-h-[calc(100vh-74px)] bg-futura-cream flex flex-col items-center justify-center px-6 relative overflow-hidden">
+
+    <!-- Imagen de fondo -->
+    <div class="absolute inset-0">
+      <img
+        src={`${base}/assets/images/Finalizacion01.png`}
+        alt=""
+        class="w-full h-full object-cover opacity-20"
+      />
+    </div>
+
+    <!-- Contenido -->
+    <div class="relative text-center max-w-md">
+      <div class="w-16 h-16 mx-auto mb-6 bg-futura-dark rounded-full flex items-center justify-center">
+        <svg class="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+
+      <h1 class="text-5xl md:text-6xl font-medium text-neutral-900 mb-4">¡LISTO!</h1>
+      <p class="text-xl text-neutral-700 mb-8">Tu compra ha sido realizada.</p>
+      <p class="text-sm text-neutral-500 mb-10">
+        Recibirás un correo de confirmación con los detalles de tu pedido. Gracias por confiar en
+        FuturaBio®.
+      </p>
+      <a href="/" class="btn-dark">Volver al inicio</a>
+    </div>
+
+  </section>
+
+</BaseLayout>

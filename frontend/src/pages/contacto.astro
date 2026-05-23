@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout
+  title="Contacto — FuturaBio®"
+  description="Escríbenos. Estamos aquí para ayudarte con tus consultas sobre nuestros productos."
+>
+
+  <!-- Hero -->
+  <section class="relative h-[480px] overflow-hidden">
+    <img
+      src={`${base}/assets/images/Contacto01.png`}
+      alt="FuturaBio — Contacto"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-white/30"></div>
+  </section>
+
+  <!-- Formulario -->
+  <section class="page-section bg-white">
+    <div class="page-container max-w-2xl">
+
+      <h1 class="text-4xl md:text-5xl font-medium text-neutral-900 mb-12">CONTACTO</h1>
+
+      <form
+        action="https://formspree.io/f/mbdbkkzz"
+        method="POST"
+        class="space-y-6"
+      >
+
+        <!-- Nombre y Apellido -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="nombre" class="form-label">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required class="form-input" placeholder="Tu nombre" />
+          </div>
+          <div>
+            <label for="apellido" class="form-label">Apellido</label>
+            <input type="text" id="apellido" name="apellido" required class="form-input" placeholder="Tu apellido" />
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label for="email" class="form-label">Correo electrónico</label>
+          <input type="email" id="email" name="email" required class="form-input" placeholder="tu@email.com" />
+        </div>
+
+        <!-- Mensaje -->
+        <div>
+          <label for="mensaje" class="form-label">Tu mensaje</label>
+          <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="6"
+            required
+            class="form-input resize-none"
+            placeholder="¿En qué podemos ayudarte?"
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <div>
+          <button type="submit" class="btn-dark w-full justify-center py-4 text-base">
+            Enviar
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+</BaseLayout>

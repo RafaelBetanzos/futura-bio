@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+const ingredientes = [
+  {
+    nombre: 'Coco nucifera OIL',
+    beneficio: 'Humectación profunda y suavidad prolongada.',
+  },
+  {
+    nombre: 'Tocopherol',
+    beneficio: 'Antioxidante — Protege y fortalece la piel.',
+  },
+  {
+    nombre: 'Arnica montana',
+    beneficio: 'Alivia y repara pequeñas abrasiones.',
+  },
+  {
+    nombre: 'Calendula officinalis',
+    beneficio: 'Calma y repara — Ideal para pieles sensibles.',
+  },
+  {
+    nombre: 'Centella asiatica',
+    beneficio: 'Favorece la regeneración y mejora la apariencia de la piel.',
+  },
+  {
+    nombre: 'Mangifera indica',
+    beneficio: 'Nutrición intensa — Elasticidad y confort.',
+  },
+];
+---
+
+<BaseLayout
+  title="Producto — FuturaBio®"
+  description="Crema Equilibrio Natural. Formulada para todo tipo de piel con ingredientes de origen natural."
+>
+
+  <!-- Hero -->
+  <section class="relative h-[480px] overflow-hidden">
+    <img
+      src={`${base}/assets/images/Productos01.png`}
+      alt="FuturaBio — Producto"
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-black/20"></div>
+    <div class="relative page-container h-full flex items-end pb-16">
+      <div>
+        <p class="text-sm font-medium tracking-widest text-white/70 uppercase mb-2">Daily Skincare</p>
+        <h1 class="text-5xl md:text-6xl font-semibold text-white leading-tight">
+          Equilibrio diario<br />para tu piel
+        </h1>
+        <p class="mt-3 text-lg text-white/80 font-light">Innovación, bienestar y naturaleza</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detalle del producto -->
+  <section class="page-section bg-white">
+    <div class="page-container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Imagen -->
+        <div>
+          <img
+            src={`${base}/assets/images/Productos02.png`}
+            alt="Crema Equilibrio Natural"
+            class="w-full object-cover"
+          />
+        </div>
+
+        <!-- Info -->
+        <div>
+          <p class="text-xs font-semibold tracking-widest text-neutral-400 uppercase mb-2">Daily Skincare</p>
+          <h2 class="text-3xl md:text-4xl font-semibold text-neutral-900 mb-1">
+            CREMA EQUILIBRIO NATURAL
+          </h2>
+          <p class="text-sm font-medium text-neutral-500 tracking-wide mb-1">APTO TODO TIPO DE PIEL</p>
+          <div class="flex items-center gap-2 mb-6">
+            <img src={`${base}/assets/icons/Sol y Luna.svg`} alt="Uso día y noche" class="w-6 h-6" />
+            <span class="text-xs text-neutral-500">Uso día y noche</span>
+          </div>
+
+          <p class="text-sm text-neutral-600 leading-relaxed mb-8">
+            Tu ritual diario de cuidado empieza aquí. Equilibrio Natural es una crema corporal formulada
+            para todo tipo de piel. Su textura cremosa y de rápida absorción brinda humectación prolongada,
+            dejando una sensación suave. Desarrollada por FuturaBio®, combina el poder de ingredientes de
+            origen natural con fórmulas pensadas y probadas, enfocadas en el cuidado integral y el
+            equilibrio de la piel.
+          </p>
+
+          <a href="/comprar" class="btn-dark">Comprar ahora</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="page-section bg-futura-cream">
+    <div class="page-container">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-semibold text-neutral-900 mb-6">Beneficios</h2>
+          <p class="text-sm text-neutral-600 leading-relaxed">
+            Una piel que se siente bien, se ve mejor. Equilibrio Natural Crema aporta humectación
+            intensa y de larga duración, mejorando visiblemente la textura, la luminosidad y la
+            uniformidad de la piel desde las primeras aplicaciones. Ayuda a combatir la resequedad,
+            brinda suavidad inmediata y acompaña los procesos naturales de regeneración cutánea. Su
+            acción reparadora contribuye a aliviar pequeñas abrasiones y a mantener la piel saludable,
+            equilibrada y confortable a lo largo del tiempo.
+          </p>
+        </div>
+        <div>
+          <img
+            src={`${base}/assets/images/Productos03.png`}
+            alt="Beneficios de la crema"
+            class="w-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ingredientes -->
+  <section class="page-section bg-white">
+    <div class="page-container">
+      <h2 class="text-3xl md:text-4xl font-semibold text-neutral-900 mb-4">Ingredientes</h2>
+      <p class="text-sm text-neutral-500 mb-12 max-w-xl">
+        Coco nucifera OIL, Calendula officinalis FLOWER EXTRACT, Centella asiatica LEAF EXTRACT,
+        Arnica montana FLOWER EXTRACT, Mangifera indica SEED BUTTER, Tocopherol.
+      </p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {ingredientes.map(({ nombre, beneficio }) => (
+          <div class="border-t border-neutral-200 pt-5">
+            <p class="text-sm font-semibold text-neutral-800 mb-2 uppercase tracking-wide">{nombre}</p>
+            <p class="text-sm text-neutral-500 leading-relaxed">{beneficio}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA final -->
+  <section class="py-20 bg-futura-cream text-center">
+    <h3 class="text-2xl font-medium text-neutral-800 mb-6">¿Lista para empezar tu ritual?</h3>
+    <a href="/comprar" class="btn-dark">Comprar Crema Equilibrio Natural</a>
+  </section>
+
+</BaseLayout>
