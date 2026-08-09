@@ -119,9 +119,9 @@ const equipo = [
   <section class="page-section bg-futura-cream">
     <div class="page-container">
       <h2 class="text-3xl md:text-4xl font-medium text-neutral-900 text-center mb-10">El Equipo</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="flex flex-wrap justify-center gap-16">
         {equipo.map(({ nombre, rol, bio, img }) => (
-          <div class="flex flex-col items-center text-center">
+          <div class="flex flex-col items-center text-center w-full max-w-xs">
             <div class="w-44 h-44 rounded-full overflow-hidden mb-4 bg-neutral-200">
               <img
                 src={`${base}/assets/images/${img}`}
